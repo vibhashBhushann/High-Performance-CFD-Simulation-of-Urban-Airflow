@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<!-- All values are in physical units (not in lattice units). -->
+<!-- The streamwise direction is the x-direction. -->
+
+<geometry>
+    <!-- STL file defining the domain with a void as the obstacle -->
+    <filename> Unnamed3-final4.stl </filename>
+    <!-- False for no-slip on void surface, True for free-slip -->
+    <freeSlipWall> False </freeSlipWall>
+    <!-- False for periodic lateral boundaries, True for free-slip -->
+    <lateralFreeSlip> True </lateralFreeSlip>
+</geometry>
+
+<numerics>
+    <!-- Kinematic viscosity -->
+    <nu> 0.001 </nu>
+    <!-- Inlet velocity (x-direction) -->
+    <inletVelocity> 0.2 </inletVelocity>
+    <!-- Grid resolution along y-axis (reference length) -->
+    <resolution> 130 </resolution>
+    <!-- Velocity in lattice units -->
+    <uLB> 0.02 </uLB>
+    <!-- Use Smagorinsky LES model? -->
+    <useSmago> False </useSmago>
+    <!-- Smagorinsky parameter -->
+    <cSmago> 0.14 </cSmago>
+    <!-- Simulate particles for streamlines? -->
+    <useParticles> True </useParticles>
+    <!-- Particle integration time step factor -->
+    <particleTimeFactor> 2 </particleTimeFactor>
+    <!-- Particle injection probability per cell -->
+    <particleProbabilityPerCell> 1.0e-3 </particleProbabilityPerCell>
+    <!-- Remove particles with velocity squared below this -->
+    <cutOffSpeedSqr> 1.e-8 </cutOffSpeedSqr>
+    <!-- Max particles in VTK output -->
+    <maxNumParticlesToWrite> 200000 </maxNumParticlesToWrite>
+    <!-- Outlet sponge zone width (0.0 for none) -->
+    <outletSpongeZoneWidth> 0.4 </outletSpongeZoneWidth>
+    <!-- Sponge zone type ("Viscosity" or "Smagorinsky") -->
+    <outletSpongeZoneType> Viscosity </outletSpongeZoneType>
+    <!-- Target Smagorinsky parameter for sponge zone -->
+    <targetSpongeCSmago> 0.6 </targetSpongeCSmago>
+    <!-- Iterations for inlet velocity ramp-up -->
+    <initialIter> 2000 </initialIter>
+</numerics>
+
+<output>
+    <!-- Maximum simulation time -->
+    <maxT> 5000.0 </maxT>
+    <!-- Frequency for terminal statistics -->
+    <statT> 0.02 </statT>
+    <!-- Frequency for PPM images -->
+    <imageT> 0.20 </imageT>
+    <!-- Frequency for VTK files -->
+    <vtkT> 2.00 </vtkT>
+</output>
